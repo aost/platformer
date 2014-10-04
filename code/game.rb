@@ -4,7 +4,7 @@ require 'things/player'
 require 'spaces/space'
 require 'spaces/world'
 
-class Platformer < Game
+class PlatformerGame < Game
   attr_accessor :space
 
   def setup
