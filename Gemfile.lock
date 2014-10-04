@@ -9,8 +9,9 @@ GIT
       sprockets (~> 2.12.1)
       tilt (~> 1.4)
 
-PATH
-  remote: ../yeah
+GIT
+  remote: git://github.com/yeahrb/yeah.git
+  revision: 4f0d5efa995f1736b8136107b19bd118d9355080
   specs:
     yeah (0.4.2)
 
