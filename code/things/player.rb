@@ -14,6 +14,7 @@ class Player < Thing
   def initialize(position)
     super
 
+    @initial_position = position
     @velocity = V[0, 0]
     @direction = V[0, 0]
     @facing = 1
@@ -94,13 +95,18 @@ class Player < Thing
         end
       end
     end
+
+    if @position.y > game.space.height + 128
+      @velocity = V[0, 0]
+      @position = @initial_position
+    end
   end
 
   def draw(d)
     d.push
-      d.translate(@position + V[width / 2, 0])
+      d.translate(V[@position.x.to_i, @position.y.to_i] + V[(width / 2).to_i, 0])
       d.scale_x(@facing)
-      d.image(GRAPHIC, V[-width / 2, 0])
+      d.image(GRAPHIC, V[(-width / 2).to_i, 0])
     d.pop
   end
 

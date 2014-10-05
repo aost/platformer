@@ -33,4 +33,12 @@ class Space
 
     @things.each { |t| t.draw(display) }
   end
+
+  def width
+    @size.x
+  end
+
+  def height
+    @size.y
+  end
 end

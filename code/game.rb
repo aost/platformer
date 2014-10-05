@@ -1,5 +1,7 @@
 require 'things/thing'
 require 'things/wall'
+require 'things/ground'
+require 'things/grassy_ground'
 require 'things/player'
 require 'spaces/space'
 require 'spaces/world'

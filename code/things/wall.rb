@@ -1,18 +1,20 @@
 class Wall < Thing
-  GRAPHIC = Image['wall.png']
-
   def update(game)
   end
 
   def draw(d)
-    d.image(GRAPHIC, @position)
+    d.image(graphic, @position)
   end
 
   def size
-    GRAPHIC.size
+    graphic.size
   end
 
   def solid?
     true
+  end
+
+  def graphic
+    @graphic ||= Image['wall.png']
   end
 end
