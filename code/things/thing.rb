@@ -1,8 +1,9 @@
 class Thing
-  attr_accessor :position
+  attr_accessor :x, :y
 
-  def initialize(position)
-    @position = position
+  def initialize(x, y)
+    @x = x
+    @y = y
   end
 
   def update(game)
@@ -11,26 +12,6 @@ class Thing
 
   def draw(display)
     raise NotImplementedError
-  end
-
-  def x
-    position.x
-  end
-
-  def y
-    position.y
-  end
-
-  def z
-    position.z
-  end
-
-  def width
-    size.x
-  end
-
-  def height
-    size.y
   end
 
   def solid?

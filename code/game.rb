@@ -10,7 +10,7 @@ class PlatformerGame < Game
   attr_accessor :space
 
   def setup
-    display.size = V[480, 270]
+    display.size = 480, 270
     ticker.rate = 30
 
     @space = World.new
@@ -20,7 +20,7 @@ class PlatformerGame < Game
     @space.update(elapsed, self)
     @space.draw(display)
 
-    display.fill_color = C['#000']
-    display.fill_text(ticker.actual_rate, V[display.width - 32, 32])
+    display.fill_color = Color['#000']
+    display.fill_text(ticker.ticks_per_second, display.width - 32, 32)
   end
 end

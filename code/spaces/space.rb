@@ -1,20 +1,27 @@
 class Space
   class << self
-    attr_accessor :size, :background_color, :things
+    attr_accessor :width, :height, :background_color, :things
+
+    def size
+      [@width, @height]
+    end
+
+    def size=(value)
+      @width, @height = value
+    end
   end
 
-  attr_accessor :size, :background_color, :things
+  attr_accessor :width, :height, :background_color, :things
 
   def initialize
-    @size = self.class.size
-    @background_color = self.class.background_color || C['#ccc']
+    @width, @height = self.class.size
+    @background_color = self.class.background_color || Color['#ccc']
 
     @things = self.class.things.inject([]) do |memo, data|
       type, positions = data
-      positions = [positions] if positions.respond_to? :components
 
       positions.each do |position|
-        memo << type.new(position)
+        memo << type.new(*position)
       end
 
       memo
@@ -32,13 +39,5 @@ class Space
     display.clear
 
     @things.each { |t| t.draw(display) }
-  end
-
-  def width
-    @size.x
-  end
-
-  def height
-    @size.y
   end
 end

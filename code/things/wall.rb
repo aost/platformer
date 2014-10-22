@@ -3,11 +3,15 @@ class Wall < Thing
   end
 
   def draw(d)
-    d.image(graphic, @position)
+    d.draw_image(graphic, @x, @y)
   end
 
-  def size
-    graphic.size
+  def width
+    graphic.width
+  end
+
+  def height
+    graphic.height
   end
 
   def solid?
